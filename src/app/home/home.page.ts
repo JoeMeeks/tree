@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 	alpha: number = 0;
 	beta: number = 0;
 	gamma: number = 0;
-	rollout: number = 15;
+	rollout: number = 25;
 
 	mobile: boolean;
 
@@ -181,8 +181,8 @@ export class HomePage implements OnInit {
 				vm.run = new Howl({ src: ['assets/audio/launch.mp3'] });
 			}
 			vm.status = 'start';
-			vm.result = ' ';
-			vm.message = ' Hold the pedal to begin staging.';
+			vm.result = 'TAP PEDAL TO STAGE';
+			//vm.message = ' Hold the pedal to begin staging.';
 			//console.log('Howler setup');
 			//result = 'sound ready';
 
@@ -220,7 +220,7 @@ export class HomePage implements OnInit {
 	stage() {
 		//alert('stage');
 		vm.status = 'start';
-		vm.timer = ' ';
+		vm.timer = '';
 		vm.since = 0;
 		vm.result = 'STAGING&hellip;'
 		vm.message = 'Press the pedal to launch on green.'
@@ -231,7 +231,7 @@ export class HomePage implements OnInit {
 		vm.rev.play();
 
 		vm.timeout.stage = setTimeout(() => {
-			vm.result = ' ';
+			vm.result = '';
 			vm.staged = true;
 			vm.status = 'staged';
 			vm.amber1 = '';
@@ -314,7 +314,8 @@ export class HomePage implements OnInit {
 			}
 		}
 		setTimeout(() => {
-			vm.timer = time.toString();
+			//vm.timer = time.toString();
+			vm.timer = Number(time).toFixed(3);
 			vm.result = result;
 			if (status) vm.status = status;
 			vm.message = 'Press the pedal to begin staging.';

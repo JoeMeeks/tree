@@ -1,5 +1,5 @@
-<ion-content [fullscreen]="true" [ngClass]="mode">
-    <div class="view" slot="fixed">
+<ion-content [fullscreen]="true">
+    <div class="view" slot="fixed" [ngClass]="mode">
         <div class="debug" *ngIf="debug">
             <div>orientation: {{orientation}}</div>
             <!--<div>alpha: {{alpha}}</div>-->
@@ -8,6 +8,18 @@
             <div>x: {{target.x}}</div>
             <div>y: {{target.y}}</div>
         </div>
+        <ion-segment mode="ios" [(ngModel)]="mode">
+            <ion-segment-button layout="icon-start" value="sportsman">
+                <ion-icon name="tree-sportsman"></ion-icon>
+                <ion-label>Sportsman</ion-label>
+            </ion-segment-button>
+            <ion-segment-button layout="icon-start" value="pro">
+                <ion-icon name="tree-pro"></ion-icon>
+                <ion-label>Pro</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <div class="timer">{{timer}}</div>
+        <div class="result" [innerHTML]="result"></div>
         <!--[class.sportsman]="mode == 'sportsman'" [class.pro]="mode == 'pro'"-->
         <div class="lights" [ngClass]="status" [ngStyle]="{ 'transform': transform }">
             <div class="light light1 blue left"></div>
@@ -23,22 +35,12 @@
             <div class="light light6 red left"></div>
             <div class="light light6 red right"></div>
         </div>
-        <div class="timer">{{timer}}</div>
-        <div class="result" [innerHTML]="result"></div>
-        <ion-segment [(ngModel)]="mode">
-            <ion-segment-button value="sportsman">
-                <ion-icon name="tree-sportsman"></ion-icon>
-                <ion-label>Sportsman</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="pro">
-                <ion-icon name="tree-pro"></ion-icon>
-                <ion-label>Pro</ion-label>
-            </ion-segment-button>
-        </ion-segment>
         <div class="rollout">
-            <ion-range min="15" max="35" pin="true" step="1" [(ngModel)]="rollout">
-                <ion-icon slot="start" name="remove"></ion-icon>
-                <ion-icon slot="end"name="add"></ion-icon>
+            <small class="tip-start">DEEP</small>
+            <small class="tip-end">SHALLOW</small>
+            <ion-range min="15" max="35" pin="false" step="1" [(ngModel)]="rollout">
+                <ion-icon name="remove" slot="start"></ion-icon>
+                <ion-icon name="add" slot="end"></ion-icon>
             </ion-range>
             <div class="label">Rollout <span>{{(rollout/100).toFixed(2)}}s</span></div>
         </div>

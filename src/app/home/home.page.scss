@@ -2,143 +2,142 @@ ion-content { /*display: flex; flex-direction: column; justify-content: center;*
 
 .view { position: relative; width: 100%; height: 100%; /*border: solid 1px red; overflow: hidden;*/ }
 
-.timer { height: 100px; position: absolute; top: calc(env(safe-area-inset-top) + 20px); left: 0; right: 0; z-index: 1; color: #ff0400; font-family: 'lcd'; font-size: 90px; line-height: 90px; text-align: center; }
-.result { height: 32px; position: absolute; top: calc(env(safe-area-inset-bottom) + 120px); left: 0; right: 0; z-index: 1; color: #fff; font-size: 24px; line-height: 32px; text-align: center; }
-
 ion-segment { 
-    flex: 1 1 auto; flex-direction: row; 
-    position: absolute; bottom: calc(env(safe-area-inset-bottom) + 40px); left: calc(env(safe-area-inset-right) + 10px); 
-    width: 140px; height: 100px; z-index: 1; 
-}
-ion-segment ion-segment-button{ 
-    display: flex; flex-direction: column; align-items: center; justify-content: center; height: 98px; 
-    background-color: rgba(255,255,255,0.65);
-    /*border-color: rgba(72, 138, 255, 0.8);*/ 
-    border-color: rgba(232, 78, 18, 0.8); /*color: #488aff;*/ color: #e84e12; text-align: center; 
+    position: absolute; top: calc(env(safe-area-inset-top));
+    z-index: 1;
+	border-radius: 0;
 
+	ion-segment-button { 
+		border-radius: 0;
+		color: #fff;
+		text-align: center;
+
+		/* iOS styles */
+		&.ios {
+		  padding: 10px 0;
+		}
+	}
+
+	ion-segment-button::part(indicator-background) {
+	  background: rgba(255,255,255,0.4);
+	}
+
+	ion-segment-button.ios::part(indicator-background) {
+		border-radius: 30px;
+		border: solid 2px rgba(255,255,255,0.8);
+		box-sizing: border-box;
+	}
 }
-ion-segment .segment-button.segment-activated { /*background-color: rgba(72, 138, 255, 0.6);*/ color: #fff; }
-ion-segment ion-segment-button.icon { 
-    display: inline-block;
-    width: 42px; height: 42px; margin: 2px 0; /*background-color: #488aff;*/ 
-    background-color: #e84e12;
-    border: solid 1px red; vertical-align: top;
-    /*-webkit-mask-position: 50% 50%; mask-position: 50% 50%;*/
-    -webkit-mask-position: center center; mask-position: center center; 
-    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; 
-    -webkit-mask-size: contain; mask-size: contain; 
+
+.timer {
+	height: 100px;
+	position: absolute;
+	bottom: calc(50% + 150px);
+	left: 0;
+	right: 0;
+	z-index: 1;
+	/*color: #ff0400;*/ /*color: #ffecb1;*/ color: #ffd400;
+	/*font-display: block; */
+	font-family: 'lcd', Verdana, Arial, sans-serif;
+	font-size: 90px;
+	line-height: 90px;
+	text-align: center;
+	text-shadow: -2px 0 2px #f27900, 0 -2px 2px #f27900, 2px 0 2px #f27900, 0 2px 2px #f27900; 
 }
-ion-segment .segment-button.segment-activated ion-icon { background-color: #fff; }
-/*ion-icon.ion-ios-sportsman { -webkit-mask-image: url(/assets/icons/tree-sportsman.svg); mask-image: url(/assets/icons/tree-sportsman.svg); }*/
-/*ion-icon.ion-ios-pro { -webkit-mask-image: url(/assets/icons/tree-pro.svg); mask-image: url(/assets/icons/tree-pro.svg); }*/
-ion-segment ion-segment-buttonion-label.label { display: block; flex: 0 0 auto; margin: 0; padding: 0; font-size: 10px; line-height: 25px; text-align: center; }
+.result { height: 32px; position: absolute; bottom: calc(50% + 120px); left: 0; right: 0; z-index: 1; color: #fff; font-size: 24px; line-height: 32px; text-align: center; }
 
 .rollout {
     position: absolute;
-    left: calc(50% - 30px);
-    bottom: calc(env(safe-area-inset-bottom) + 40px); 
-    background-color: rgba(255,255,255,0.6);
+    left: calc(env(safe-area-inset-left) + 20px);
+    bottom: calc(env(safe-area-inset-bottom) + 20px);
+	z-index: 2;
+    background-color: rgba(0,0,0,0.4);
+	border: solid 2px rgba(255,255,255, 0.8);
     border-radius: 50px;
+	color: #fff;
+
+	.tip-start {
+		position: absolute;
+		top: 10px; left: 30px;
+		font-size: 10px;
+	}
+
+	.tip-end {
+		position: absolute;
+		top: 10px; right: 30px;
+		font-size: 10px;
+	}
         
-    ion-range.range-ios {  
-        /*padding-top: 30px;*/
-        padding-bottom: 0;
+    ion-range {
+		width: 200px;
+		padding-top: 25px;
+        padding-bottom: 25px;
 
         .range-slider { width: 40px; }
     }
 
-    .label { height: 20px; margin-bottom: 10px; color: #e84e12; font-size: 14px; line-height: 20px; text-align: center; }
-    .label span { display: inline-block; width: 45px; color: #000; /*font-weight: 600;*/ text-align: right; }
+	ion-range::part(bar-active) {
+		background: #fff;
+	}
+
+    .label { position: absolute; left: 0; bottom: 5px; right: 0; height: 20px; /*margin-bottom: 10px;*/ /*color: #e84e12;*/ font-size: 14px; line-height: 20px; text-align: center; }
+    .label span { display: inline-block; width: 45px; /*color: #000;*/ /*font-weight: 600;*/ text-align: right; }
 }
-    
 
 button.pedal { 
     -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 100px; height: 100px; 
-    position: absolute; right: calc(env(safe-area-inset-right)); bottom: calc(env(safe-area-inset-bottom) + 40px); 
+    position: absolute; right: calc(env(safe-area-inset-right)); bottom: calc(env(safe-area-inset-bottom) + 20px); z-index: 2;
     background: transparent url(/assets/images/pedal-sprite.svg) no-repeat 0 0; background-size: auto 100px; 
     border: none; border-radius: 0; box-sizing: border-box; padding: 0; cursor: pointer; outline: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 button.pedal.down { background-position: -100px 0; }
 
-/*.amber { background-color: #b57e1c; }
-.green { background-color: #002A15; }
-.red { background-color: #9B100C; }*/
-/*max-width: 980px; max-height: 680px;*/ 
+.lights {
+	position: absolute; width: 100%; height: 100%; left: 0; top: 0; margin: auto; 
+    background: #000 url(/assets/images/lvms.jpg) no-repeat center center; /*background-size: auto 2160px;*/ background-size: auto 1820px;
+    transform-origin: 50% 50%; z-index: 0; 
+	.light { position: absolute; height: 23px; width: 23px; background: transparent url(/assets/images/sprite-lights.png) no-repeat center -46px; background-size: 23px auto; border-radius: 50%; }
 
-/*background-size: cover;*/
-/*.lights { position: absolute; width: calc(100% + 90px); height: calc(100% + 90px); left: -45px; top: -45px; margin: auto; 
-            background: #000 url(/assets/images/lvms-strip.jpg) no-repeat center center; background-size: auto 680px;
-            transform-origin: 50% 50%; z-index: 0; }*/
-/*
-.lights > div { position: absolute; }
-.lights > div.light1 { height: 5px; width: 5px; top: calc(50% - 102px); }
-.lights > div.light2 { height: 5px; width: 5px; top: calc(50% - 89px); }
+	.light1 { background-position: center top; box-shadow: 0 -5px 5px rgba(22,135,252,0.5); }
 
-.lights > div.light1.bulb1.left, .lights > div.light2.bulb1.left { left: calc(50% - 7px); }
-.lights > div.light1.bulb2.left, .lights > div.light2.bulb2.left { left: calc(50% - 14px); }
-.lights > div.light1.bulb1.right, .lights > div.light2.bulb1.right { right: calc(50% - 28px); }
-.lights > div.light1.bulb2.right, .lights > div.light2.bulb2.right { right: calc(50% - 21px); }
+	.light.left { right: calc(50% + 24px); }
+	.light.right { left: calc(50% + 9px); }
 
-.lights > div { width: 9px; height: 9px; }
+	.light.blue.left { right: calc(50% + 34px); }
+	.light.blue.right { left: calc(50% + 14px); }
 
-.lights > div.left { left: calc(50% - 17px); }
-.lights > div.right { right: calc(50% - 31px); }
+	.light1, .light2, .light3, .light4, .light5, .light6, .light7 { position: absolute; border-radius: 50%; }
 
-.lights > div.green.left { left: calc(50% - 15px); }
-.lights > div.green.right { right: calc(50% - 28px); }
-
-.lights > div.red.left { left: calc(50% - 12px); }
-.lights > div.red.right { right: calc(50% - 26px); }
-
-.light1, .light2, .light3, .light4, .light5, .light6, .light7 { position: absolute; border-radius: 50%; }
-.light3, .light4, .light5, .light6, .light7 { height: 50px; width: 50px; }
-.light1, .light2 { background-color: #666600; }
-.light3, .light4, .light5 { background-color: #662900; }
-.light3 { top: calc(50% - 81px); }
-.light4 { top: calc(50% - 65px); }
-.light5 { top: calc(50% - 51px); }
-.light6 { top: calc(50% - 34px); }
-.light7 { top: calc(50% - 18px); }
-*/
-
-.lights { position: absolute; width: calc(100% + 90px); height: calc(100% + 90px); left: -45px; top: -45px; margin: auto; 
-            background: #000 url(/assets/images/lvms-strip-edit.jpg) no-repeat center center; /*background-size: auto 2160px;*/ background-size: auto 1080px;
-            transform-origin: 50% 50%; z-index: 0; }
-.lights .light { position: absolute; height: 15px; width: 15px; background: #000 url(/assets/images/sprite-lights.png) no-repeat center -30px; background-size: 15px auto; border-radius: 50%; }
-.lights .light.left { left: calc(50% - 12px); }
-.lights .light.right { right: calc(50% - 8px); }
-
-.light1 { top: calc(50% - 20px); }
-.light2 { top: calc(50% - 12px); }
-.light3 { top: calc(50% - 4px); }
-.light4 { top: calc(50% + 4px); }
-.light5 { top: calc(50% + 12px); }
-.light6 { top: calc(50% + 20px); }
-
-.lights .light1 { background-position: center top; box-shadow: 0 -5px 5px rgba(22,135,252,0.5); }
+	.light1 { top: calc(50% - 87px); }
+	.light2 { top: calc(50% - 54px); }
+	.light3 { top: calc(50% - 18px); }
+	.light4 { top: calc(50% + 20px); }
+	.light5 { top: calc(50% + 59px); }
+	.light6 { top: calc(50% + 100px); }
+}
 
 .sportsman {
     .lights.staged .light1 { 
-        background-position: center -15px; 
+        background-position: center -23px; 
         box-shadow: -5px 0 5px rgba(22,135,252,0.5), 0 -5px 5px rgba(22,135,252,0.5), 5px 0 5px rgba(22,135,252,0.5), 0 5px 5px rgba(22,135,252,0.5); 
         transition: background-position 0s linear 0.01s, box-shadow 0s linear 0.01s;
     }
     .lights.staged .light2 { 
-        background-position: center -45px; 
+        background-position: center -69px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 1s, box-shadow 0s linear 1s; 
     }
     .lights.staged .light3 { 
-    background-position: center -45px;
+    background-position: center -69px;
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 1.5s, box-shadow 0s linear 1.5s; 
     }
     .lights.staged .light4 { 
-        background-position: center -45px; 
+        background-position: center -69px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 2s, box-shadow 0s linear 2s; 
     }
     .lights.staged .light5 { 
-        background-position: center -60px; 
+        background-position: center -92px; 
         box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
         transition: background-position 0s linear 2.5s, box-shadow 0s linear 2.5s; 
     }
@@ -146,45 +145,45 @@ button.pedal.down { background-position: -100px 0; }
 
 .pro {
     .lights.staged .light1 { 
-        background-position: center -7px; 
+        background-position: center -23px; 
         box-shadow: -5px 0 5px rgba(22,135,252,0.5), 0 -5px 5px rgba(22,135,252,0.5), 5px 0 5px rgba(22,135,252,0.5), 0 5px 5px rgba(22,135,252,0.5); 
         transition: background-position 0s linear 0.01s, box-shadow 0s linear 0.01s; 
     }
     .lights.staged .light2 { 
-        background-position: center -21px; 
+        background-position: center -69px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
     }
     .lights.staged .light3 { 
-        background-position: center -21px; 
+        background-position: center -69px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
     }
     .lights.staged .light4 { 
-        background-position: center -21px; 
+        background-position: center -69px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
     }
     .lights.staged .light5 { 
-        background-position: center -28px; 
+        background-position: center -92px; 
         box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
         transition: background-position 0s linear 0.9s, box-shadow 0s linear 0.9s; 
     }   
 }
 
-.lights.launch .light1 { background-position: center -14px;  box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light1 { background-position: center -14px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light2.fail { background-position: center -21px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light3.fail { background-position: center -21px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light4.fail { background-position: center -21px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.launch .light1 { background-position: center -46px;  box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light1 { background-position: center -46px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light2.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light3.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light4.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
 .lights.launch .light5 { 
-    background-position: center -60px;
+    background-position: center -92px;
     box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
     transition: background-position 0s linear 0s, box-shadow 0s linear 0s;
 }
-.lights.failed .light5.left, .lights.failed .light5.right { background-position: center -75px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light5.left, .lights.failed .light5.right { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
 .lights.failed .light6.left, .lights.failed .light6.right { 
-    background-position: center -35px;
+    background-position: center -115px;
     box-shadow: -5px 0 5px rgba(255, 4, 0, 0.5), 0 -5px 5px rgba(255, 4, 0, 0.5), 5px 0 5px rgba(255, 4, 0, 0.5), 0 5px 5px rgba(255, 4, 0, 0.5); 
     transition: background-position 0s linear 0s, box-shadow 0s linear 0s;
 }
@@ -233,47 +232,36 @@ button.pedal.down { background-position: -100px 0; }
     (min-device-width: 320px) and (orientation: landscape), 
     (min-device-width: 320px) and (orientation: landscape), 
     (min-device-width: 375px) and (orientation: landscape) {
-        .result { top: auto; bottom: 100px; }
+        /*.timer { top: auto; bottom: 20px; }*/
+		/*.result { top: auto; bottom: calc(50% + 120px); }*/
 }
 
 .plt-desktop  :host{
     .fixed-content { display: flex; flex-direction: column; }
     /*.view { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%,-50%,0); }*/
-    .view { position: relative; max-width: 980px; max-height: 680px; margin: auto;  }
-    /*.lights { max-width: 980px; max-height: 680px; margin: auto; position: static; top: unset; }*/
-    .result { top: 120px; bottom: auto; }
 }
 
 .plt-mobile:not(.plt-tablet) :host {
-    @media screen and (orientation: portrait) and (min-height: 736px) {
-        .lights { background-size: auto 2080px; }
-        .lights > div.light1 { top: calc(50% - 39px); }
-        .lights > div.light2 { top: calc(50% - 21px); }
+    @media screen and (orientation: portrait) {
+        /*.lights { background-size: auto 2560px; }*/
+        
 
-        .lights > div.light1.bulb1.left, .lights > div.light2.bulb1.left { left: calc(50% - 32px); }
-        .lights > div.light1.bulb2.left, .lights > div.light2.bulb2.left { left: calc(50% - 8px); }
-        .lights > div.light1.bulb1.right, .lights > div.light2.bulb1.right { right: calc(50% - 30px); }
-        .lights > div.light1.bulb2.right, .lights > div.light2.bulb2.right { right: calc(50% - 42px); }
-
-        .lights > div.left { left: calc(50% - 30px); }
-        .lights > div.right { right: calc(50% - 16px); }
-
-        .lights > div.green.left { left: calc(50% - 18px); }
-        .lights > div.green.right { right: calc(50% - 38px); }
-
-        .lights > div.red.left { left: calc(50% - 18px); }
-        .lights > div.red.right { right: calc(50% - 35px); }
-
-        .light1, .light2, .light3, .light4, .light5, .light6, .light7 { position: absolute; border-radius: 50%; }
-        .light3 { top: calc(50% + 2px); }
-        .light4 { top: calc(50% + 8px); }
-        .light5 { top: calc(50% + 16px); }
-        .light6 { top: calc(50% + 33px); }
-        .light7 { top: calc(50% + 150px); }
+        
     }
     @media screen and (orientation: landscape) {
-        .result { top: auto; bottom: calc(env(safe-area-inset-bottom) + 140px); }
-        .rollout { left: calc(50% - 68px); }
+        .timer { bottom: calc(50% - 50px); left: calc(env(safe-area-inset-left) + 20px); right: unset; }
+		.result { bottom: calc(50% - 16px); left: unset; right: calc(env(safe-area-inset-right) + 20px); }
+
+
+		/*.timer {
+			height: 100px; position: absolute; bottom: calc(50% + 190px); left: 0; right: 0; z-index: 1;
+			color: #ffd400;
+			font-family: 'lcd', Verdana, Arial, sans-serif; font-size: 90px; line-height: 90px;
+			text-align: center;
+			text-shadow: -2px 0 2px #f27900, 0 -2px 2px #f27900, 2px 0 2px #f27900, 0 2px 2px #f27900;
+		}
+		.result { height: 32px; position: absolute; bottom: calc(50% + 150px); left: 0; right: 0; z-index: 1; color: #fff; font-size: 24px; line-height: 32px; text-align: center; }*/
+
     }
     
 

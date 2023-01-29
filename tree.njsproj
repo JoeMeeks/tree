@@ -34,16 +34,9 @@
     <Content Include="src\assets\fonts\sofachrome.woff" />
     <Content Include="src\assets\fonts\sofachrome.woff2" />
     <Content Include="src\assets\icons\favicon.ico" />
+    <Content Include="src\assets\images\lvms.jpg" />
     <Content Include="src\svg\tree-pro.svg" />
     <Content Include="src\svg\tree-sportsman.svg" />
-    <Content Include="src\assets\images\light-amber.svg" />
-    <Content Include="src\assets\images\light-blue-pre.svg" />
-    <Content Include="src\assets\images\light-blue-stg.svg" />
-    <Content Include="src\assets\images\light-green.svg" />
-    <Content Include="src\assets\images\light-off.svg" />
-    <Content Include="src\assets\images\light-red.svg" />
-    <Content Include="src\assets\images\lvms-strip-edit.jpg" />
-    <Content Include="src\assets\images\lvms-strip.jpg" />
     <Content Include="src\assets\images\pedal-sprite.svg" />
     <Content Include="src\assets\images\scanlines.png" />
     <Content Include="src\assets\images\sprite-lights.png" />
