@@ -1,20 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" [ngClass]="mode">
+    <div class="view" slot="fixed">
+        <div class="debug" *ngIf="debug">
+            <div>orientation: {{orientation}}</div>
+            <!--<div>alpha: {{alpha}}</div>-->
+            <div>beta: {{beta}}</div>
+            <div>gamma: {{gamma}}</div>
+            <div>x: {{target.x}}</div>
+            <div>y: {{target.y}}</div>
+        </div>
+        <!--[class.sportsman]="mode == 'sportsman'" [class.pro]="mode == 'pro'"-->
+        <div class="lights" [ngClass]="status" [ngStyle]="{ 'transform': transform }">
+            <div class="light light1 blue left"></div>
+            <div class="light light1 blue right"></div>
+            <div class="light light2 amber left" [ngClass]="amber1"></div>
+            <div class="light light2 amber right" [ngClass]="amber1"></div>
+            <div class="light light3 amber left" [ngClass]="amber2"></div>
+            <div class="light light3 amber right" [ngClass]="amber2"></div>
+            <div class="light light4 amber left" [ngClass]="amber3"></div>
+            <div class="light light4 amber right" [ngClass]="amber3"></div>
+            <div class="light light5 green left"></div>
+            <div class="light light5 green right"></div>
+            <div class="light light6 red left"></div>
+            <div class="light light6 red right"></div>
+        </div>
+        <div class="timer">{{timer}}</div>
+        <div class="result" [innerHTML]="result"></div>
+        <ion-segment [(ngModel)]="mode">
+            <ion-segment-button value="sportsman">
+                <ion-icon name="tree-sportsman"></ion-icon>
+                <ion-label>Sportsman</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="pro">
+                <ion-icon name="tree-pro"></ion-icon>
+                <ion-label>Pro</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <div class="rollout">
+            <ion-range min="15" max="35" pin="true" step="1" [(ngModel)]="rollout">
+                <ion-icon slot="start" name="remove"></ion-icon>
+                <ion-icon slot="end"name="add"></ion-icon>
+            </ion-range>
+            <div class="label">Rollout <span>{{(rollout/100).toFixed(2)}}s</span></div>
+        </div>
+        <button class="pedal" [ngClass]="{ 'down': down }" (touchstart)="start($event)" (touchend)="end($event)" (mousedown)="start($event)" (mouseup)="end($event)"></button>
+        <footer [innerHTML]="message"></footer>
+    </div>
 </ion-content>

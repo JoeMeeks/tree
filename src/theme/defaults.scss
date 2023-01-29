@@ -1,0 +1,20 @@
+body { background: #000; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+form { display: block; }
+@font-face { 
+    font-family: 'lcd'; 
+    font-style: normal;
+    font-weight: normal; 
+    src: url('/assets/fonts/digital7.ttf') format('truetype'), url('/assets/fonts/digital7.woff2') format('woff2'), url('/assets/fonts/digital7.woff') format('woff'); 
+}
+@font-face {
+    font-family: 'sofachrome';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/assets/fonts/sofachrome.ttf') format('truetype'), url('/assets/fonts/sofachrome.woff2') format('woff2'), url('/assets/fonts/sofachrome.woff') format('woff');
+}
+@font-face {
+    font-family: 'sofachrome';
+    font-style: italic;
+    font-weight: normal;
+    src: url('/assets/fonts/sofachrome-italic.ttf') format('truetype'), url('/assets/fonts/sofachrome-italic.woff2') format('woff2'), url('/assets/fonts/sofachrome-italic.woff') format('woff');
+}

@@ -22,6 +22,32 @@
     <Content Include="ionic.config.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <Content Include="src\assets\audio\launch.mp3" />
+    <Content Include="src\assets\audio\reving.mp3" />
+    <Content Include="src\assets\fonts\digital7.ttf" />
+    <Content Include="src\assets\fonts\digital7.woff" />
+    <Content Include="src\assets\fonts\digital7.woff2" />
+    <Content Include="src\assets\fonts\sofachrome-italic.ttf" />
+    <Content Include="src\assets\fonts\sofachrome-italic.woff" />
+    <Content Include="src\assets\fonts\sofachrome-italic.woff2" />
+    <Content Include="src\assets\fonts\sofachrome.ttf" />
+    <Content Include="src\assets\fonts\sofachrome.woff" />
+    <Content Include="src\assets\fonts\sofachrome.woff2" />
+    <Content Include="src\assets\icons\favicon.ico" />
+    <Content Include="src\svg\tree-pro.svg" />
+    <Content Include="src\svg\tree-sportsman.svg" />
+    <Content Include="src\assets\images\light-amber.svg" />
+    <Content Include="src\assets\images\light-blue-pre.svg" />
+    <Content Include="src\assets\images\light-blue-stg.svg" />
+    <Content Include="src\assets\images\light-green.svg" />
+    <Content Include="src\assets\images\light-off.svg" />
+    <Content Include="src\assets\images\light-red.svg" />
+    <Content Include="src\assets\images\lvms-strip-edit.jpg" />
+    <Content Include="src\assets\images\lvms-strip.jpg" />
+    <Content Include="src\assets\images\pedal-sprite.svg" />
+    <Content Include="src\assets\images\scanlines.png" />
+    <Content Include="src\assets\images\sprite-lights.png" />
+    <Content Include="src\theme\defaults.scss" />
     <Content Include="tsconfig.app.json" />
     <None Include="tsconfig.json" />
     <Content Include="tsconfig.spec.json" />
@@ -103,20 +129,15 @@
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\app.component.scss" />
     <None Include="src\app\app-routing.module.ts" />
-    <None Include="src\app\app.component.spec.ts" />
     <None Include="src\app\app.component.ts" />
-    <None Include="src\app\app.module.ts" />
     <Content Include="src\assets\shapes.svg" />
     <None Include="src\environments\environment.prod.ts" />
     <None Include="src\environments\environment.ts" />
     <Content Include="src\theme\variables.scss" />
     <Content Include="src\app\home\home.page.html" />
     <Content Include="src\app\home\home.page.scss" />
-    <None Include="src\app\home\home-routing.module.ts" />
-    <None Include="src\app\home\home.module.ts" />
-    <None Include="src\app\home\home.page.spec.ts" />
     <None Include="src\app\home\home.page.ts" />
-    <Content Include="src\assets\icon\favicon.png" />
+    <Content Include="src\assets\icons\favicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources" />
@@ -131,9 +152,16 @@
     <Folder Include="src\app" />
     <Folder Include="src\app\home" />
     <Folder Include="src\assets" />
-    <Folder Include="src\assets\icon" />
+    <Folder Include="src\assets\audio\" />
+    <Folder Include="src\assets\fonts\" />
+    <Folder Include="src\assets\icons\" />
+    <Folder Include="src\assets\images\" />
+    <Folder Include="src\svg\" />
     <Folder Include="src\environments" />
     <Folder Include="src\theme" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.module.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
