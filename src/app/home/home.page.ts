@@ -223,7 +223,7 @@ export class HomePage implements OnInit {
 		vm.timer = '';
 		vm.since = 0;
 		vm.result = 'STAGING&hellip;'
-		vm.message = 'Press the pedal to launch on green.'
+		//vm.message = 'Tap pedal to launch';
 
 		if (vm.run.playing()) {
 			vm.run.stop();
@@ -231,7 +231,7 @@ export class HomePage implements OnInit {
 		vm.rev.play();
 
 		vm.timeout.stage = setTimeout(() => {
-			vm.result = '';
+			vm.result = 'TAP PEDAL TO LAUNCH';
 			vm.staged = true;
 			vm.status = 'staged';
 			vm.amber1 = '';
@@ -318,7 +318,7 @@ export class HomePage implements OnInit {
 			vm.timer = Number(time).toFixed(3);
 			vm.result = result;
 			if (status) vm.status = status;
-			vm.message = 'Press the pedal to begin staging.';
+			vm.message = 'Tap pedal to stage';
 		}, 1);
 		clearTimeout(vm.timeout.stage);
 		clearTimeout(vm.timeout.start);

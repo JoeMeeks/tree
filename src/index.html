@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en" dir="ltr">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 	<meta charset="utf-8" />
-	<title>Ionic App</title>
+	<title>Tree</title>
 
 	<base href="/" />
 
@@ -11,16 +10,32 @@
 	<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="msapplication-tap-highlight" content="no" />
-	<meta name="theme-color" content="#2d77f0">
-	<link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+	<meta name="theme-color" content="#ec3223">
+	<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+	<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
 	<!-- add to homescreen for ios -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta property="og:site_name" content="HEMImania">
+	<meta property="og:title" content="NHRA Drag Race Sportsman & Pro Tree Simulator by HEMImania">
+	<meta property="og:image" content="assets/images/social-banner.png">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="NHRA Drag Race Sportsman & Pro Tree Simulator for web browsers and touch devices. Practice your launch reaction time and go for the hole shot!">
+	<meta property="og:url" content="http://hemimania.com/tree">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173578839-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-173578839-1');</script>
 </head>
 
 <body>
-  <app-root></app-root>
+	<app-root></app-root>
 </body>
 
 </html>

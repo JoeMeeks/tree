@@ -34,7 +34,12 @@
     <Content Include="src\assets\fonts\sofachrome.woff" />
     <Content Include="src\assets\fonts\sofachrome.woff2" />
     <Content Include="src\assets\icons\favicon.ico" />
+    <Content Include="src\assets\images\apple-touch-icon.png" />
+    <Content Include="src\assets\images\favicon.png" />
+    <Content Include="src\assets\images\logo-crop.png" />
+    <Content Include="src\assets\images\logo.png" />
     <Content Include="src\assets\images\lvms.jpg" />
+    <Content Include="src\assets\images\social-banner.png" />
     <Content Include="src\svg\tree-pro.svg" />
     <Content Include="src\svg\tree-sportsman.svg" />
     <Content Include="src\assets\images\pedal-sprite.svg" />

@@ -11,16 +11,15 @@
         <ion-segment mode="ios" [(ngModel)]="mode">
             <ion-segment-button layout="icon-start" value="sportsman">
                 <ion-icon name="tree-sportsman"></ion-icon>
-                <ion-label>Sportsman</ion-label>
+                <ion-label>SPORTSMAN</ion-label>
             </ion-segment-button>
             <ion-segment-button layout="icon-start" value="pro">
                 <ion-icon name="tree-pro"></ion-icon>
-                <ion-label>Pro</ion-label>
+                <ion-label>PRO</ion-label>
             </ion-segment-button>
         </ion-segment>
         <div class="timer">{{timer}}</div>
         <div class="result" [innerHTML]="result"></div>
-        <!--[class.sportsman]="mode == 'sportsman'" [class.pro]="mode == 'pro'"-->
         <div class="lights" [ngClass]="status" [ngStyle]="{ 'transform': transform }">
             <div class="light light1 blue left"></div>
             <div class="light light1 blue right"></div>
@@ -42,9 +41,9 @@
                 <ion-icon name="remove" slot="start"></ion-icon>
                 <ion-icon name="add" slot="end"></ion-icon>
             </ion-range>
-            <div class="label">Rollout <span>{{(rollout/100).toFixed(2)}}s</span></div>
+            <div class="label">ROLLOUT <span>{{(rollout/100).toFixed(2)}}s</span></div>
         </div>
         <button class="pedal" [ngClass]="{ 'down': down }" (touchstart)="start($event)" (touchend)="end($event)" (mousedown)="start($event)" (mouseup)="end($event)"></button>
-        <footer [innerHTML]="message"></footer>
+        <!--<footer [innerHTML]="message"></footer>-->
     </div>
 </ion-content>

@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "author": "RARE BEAR SOFT",
   "homepage": "https://rarebearsoft.com/",
-  "scripts": {
-    "ng": "ng",
-    "serve": "ionic serve --external",
-    "build": "ionic build --prod",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint"
-  },
+	"scripts": {
+		"ng": "ng",
+		"serve": "ionic serve --external",
+		"appflow:build": "ionic build --prod",
+		"build": "ionic build --prod -- --base-href //tree",
+		"watch": "ng build --watch --configuration development",
+		"test": "ng test",
+		"lint": "ng lint"
+	},
   "private": true,
   "dependencies": {
     "@angular/common": "^15.0.0",
