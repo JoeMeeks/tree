@@ -180,8 +180,11 @@ export class HomePage implements OnInit {
 			if (!vm.run) {
 				vm.run = new Howl({ src: ['assets/audio/launch.mp3'] });
 			}
-			vm.status = 'start';
-			vm.result = 'TAP PEDAL TO STAGE';
+			requestAnimationFrame(() => {
+				vm.status = 'start';
+				vm.result = 'TAP PEDAL TO STAGE';
+			});
+			
 			//vm.message = ' Hold the pedal to begin staging.';
 			//console.log('Howler setup');
 			//result = 'sound ready';
@@ -219,11 +222,13 @@ export class HomePage implements OnInit {
 
 	stage() {
 		//alert('stage');
-		vm.status = 'start';
-		vm.timer = '';
-		vm.since = 0;
-		vm.result = 'STAGING&hellip;'
-		//vm.message = 'Tap pedal to launch';
+		requestAnimationFrame(() => {
+			vm.status = 'start';
+			vm.timer = '';
+			vm.since = 0;
+			vm.result = 'STAGING&hellip;'
+			//vm.message = 'Tap pedal to launch';
+		});
 
 		if (vm.run.playing()) {
 			vm.run.stop();
@@ -231,20 +236,24 @@ export class HomePage implements OnInit {
 		vm.rev.play();
 
 		vm.timeout.stage = setTimeout(() => {
-			vm.result = 'TAP PEDAL TO LAUNCH';
-			vm.staged = true;
-			vm.status = 'staged';
-			vm.amber1 = '';
-			vm.amber2 = '';
-			vm.amber3 = '';
 			vm.since = new Date().getTime();
+			requestAnimationFrame(() => {
+				vm.result = 'TAP PEDAL TO LAUNCH';
+				vm.staged = true;
+				vm.status = 'staged';
+				vm.amber1 = '';
+				vm.amber2 = '';
+				vm.amber3 = '';
+			});
 			vm.timeout.start = setTimeout(() => {
 				//vm.staged = false;
 				if (vm.timeout && vm.status != 'failed') {
-					vm.status = 'launch';
+					requestAnimationFrame(() => {
+						vm.status = 'launch';
+					});
 				}
 				clearTimeout(vm.timeout.start);
-			}, vm.mode == vm.modes.pro ? 900 : 2500);
+			}, 3500);
 			clearTimeout(vm.timeout.stage);
 		}, 1000);
 	}
@@ -264,61 +273,87 @@ export class HomePage implements OnInit {
 		} else {
 			switch (vm.mode) {
 				case vm.modes.sportsman:
-					if (span < 2500) {
-						vm.failed = true;
-						vm.amber1 = span >= 1000 ? 'fail' : 'pass';
-						vm.amber2 = span >= 1500 ? 'fail' : 'pass';
-						vm.amber3 = span >= 2000 ? 'fail' : 'pass';
-						status = 'failed';
-						result = 'DISQUALIFIED';
+					if (span < 3500) {
+						requestAnimationFrame(() => {
+							vm.failed = true;
+							vm.amber1 = span >= 2000 ? 'fail' : 'pass';
+							vm.amber2 = span >= 2500 ? 'fail' : 'pass';
+							vm.amber3 = span >= 3000 ? 'fail' : 'pass';
+							status = 'failed';
+							result = 'DISQUALIFIED';
+						});
 					} else {
-						vm.amber1 = 'pass';
-						vm.amber2 = 'pass';
-						vm.amber3 = 'pass';
-						if (span < 2510) {
-							result = 'PERFECTION!';
-						} else if (span < 2700) {
-							result = 'GREAT';
-						} else if (span < 2900) {
-							result = 'OKAY';
+						requestAnimationFrame(() => {
+							vm.amber1 = 'pass';
+							vm.amber2 = 'pass';
+							vm.amber3 = 'pass';
+						});
+						if (span < 3510) {
+							requestAnimationFrame(() => {
+								result = 'PERFECTION!';
+							});
+						} else if (span < 3700) {
+							requestAnimationFrame(() => {
+								result = 'GREAT';
+							});
+						} else if (span < 3900) {
+							requestAnimationFrame(() => {
+								result = 'OKAY';
+							});
 						} else {
-							result = 'TOO SLOW';
+							requestAnimationFrame(() => {
+								result = 'TOO SLOW';
+							});
 						}
 					}
-					time = (span - 2500) / 1000;
+					time = (span - 3500) / 1000;
 					break;
 				case vm.modes.pro:
-					if (span < 900) {
-						vm.failed = true;
-						vm.amber1 = 'fail';
-						vm.amber2 = 'fail';
-						vm.amber3 = 'fail';
-						status = 'failed';
-						result = 'DISQUALIFIED';
+					if (span < 3500) {
+						requestAnimationFrame(() => {
+							vm.failed = true;
+							vm.amber1 = 'fail';
+							vm.amber2 = 'fail';
+							vm.amber3 = 'fail';
+							status = 'failed';
+							result = 'DISQUALIFIED';
+						});
 					} else {
-						vm.amber1 = 'pass';
-						vm.amber2 = 'pass';
-						vm.amber3 = 'pass';
-						if (span < 910) {
-							result = 'PERFECTION!';
-						} else if (span < 1100) {
-							result = 'GREAT';
-						} else if (span < 1300) {
-							result = 'OKAY';
+						requestAnimationFrame(() => {
+							vm.amber1 = 'pass';
+							vm.amber2 = 'pass';
+							vm.amber3 = 'pass';
+						});
+						if (span < 3510) {
+							requestAnimationFrame(() => {
+								result = 'PERFECTION!';
+							});
+						} else if (span < 3700) {
+							requestAnimationFrame(() => {
+								result = 'GREAT';
+							});
+						} else if (span < 3900) {
+							requestAnimationFrame(() => {
+								result = 'OKAY';
+							});
 						} else {
-							result = 'TOO SLOW';
+							requestAnimationFrame(() => {
+								result = 'TOO SLOW';
+							});
 						}
 					}
-					time = (span - 900) / 1000;
+					time = (span - 3500) / 1000;
 					break;
 			}
 		}
 		setTimeout(() => {
 			//vm.timer = time.toString();
-			vm.timer = Number(time).toFixed(3);
-			vm.result = result;
-			if (status) vm.status = status;
-			vm.message = 'Tap pedal to stage';
+			requestAnimationFrame(() => {
+				vm.timer = Number(time).toFixed(3);
+				vm.result = result;
+				if (status) vm.status = status;
+				vm.message = 'Tap pedal to stage';
+			});
 		}, 1);
 		clearTimeout(vm.timeout.stage);
 		clearTimeout(vm.timeout.start);

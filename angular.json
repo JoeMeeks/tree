@@ -46,6 +46,7 @@
 					},
 					"configurations": {
 						"production": {
+							"baseHref": "/tree/",
 							"budgets": [
 								{
 									"type": "initial",

@@ -93,7 +93,7 @@ ion-segment {
 button.pedal { 
     -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 100px; height: 100px; 
     position: absolute; right: calc(env(safe-area-inset-right)); bottom: calc(env(safe-area-inset-bottom) + 20px); z-index: 2;
-    background: transparent url(/assets/images/pedal-sprite.svg) no-repeat 0 0; background-size: auto 100px; 
+    background: transparent url(~src/assets/images/pedal-sprite.svg) no-repeat 0 0; background-size: auto 100px; 
     border: none; border-radius: 0; box-sizing: border-box; padding: 0; cursor: pointer; outline: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 button.pedal.down { background-position: -100px 0; }
 
@@ -110,97 +110,103 @@ button.pedal.down { background-position: -100px 0; }
 
 .lights {
 	position: absolute; width: 100%; height: 100%; left: 0; top: 0; margin: auto; 
-    background: #000 url(/assets/images/lvms.jpg) no-repeat center center; /*background-size: auto 2160px;*/ background-size: auto 1820px;
+    background: #000 url(~src/assets/images/lvms.jpg) no-repeat center center; /*background-size: auto 2160px;*/ background-size: auto 1820px;
     transform-origin: 50% 50%; z-index: 0; 
-	.light { position: absolute; height: 23px; width: 23px; background: transparent url(/assets/images/sprite-lights.png) no-repeat center -46px; background-size: 23px auto; border-radius: 50%; }
+	.light { position: absolute; height: 30px; width: 30px; background: transparent url(~src/assets/images/sprite-lights.png) no-repeat center -60px; background-size: 30px auto; border-radius: 50%; }
 
 	.light1 { background-position: center top; box-shadow: 0 -5px 5px rgba(22,135,252,0.5); }
 
-	.light.left { right: calc(50% + 24px); }
-	.light.right { left: calc(50% + 9px); }
+	.light.blue.left { right: calc(50% + 53px); }
+	.light.blue.right { left: calc(50% + 39px); }
 
-	.light.blue.left { right: calc(50% + 34px); }
-	.light.blue.right { left: calc(50% + 14px); }
+	.light.amber.left { right: calc(50% + 40px); }
+	.light.amber.right { left: calc(50% + 23px); }
+
+	.light.green.left { right: calc(50% + 33px); }
+	.light.green.right { left: calc(50% + 19px); }
+
+	.light.red.left { right: calc(50% + 32px); }
+	.light.red.right { left: calc(50% + 18px); }
 
 	.light1, .light2, .light3, .light4, .light5, .light6, .light7 { position: absolute; border-radius: 50%; }
 
-	.light1 { top: calc(50% - 87px); }
-	.light2 { top: calc(50% - 54px); }
-	.light3 { top: calc(50% - 18px); }
-	.light4 { top: calc(50% + 20px); }
-	.light5 { top: calc(50% + 59px); }
-	.light6 { top: calc(50% + 100px); }
+	.light1 { top: calc(50% - 99px); }
+	.light2 { top: calc(50% - 49px); }
+	.light3 { top: calc(50% - 6px); }
+	.light4 { top: calc(50% + 33px); }
+	.light5 { top: calc(50% + 77px); }
+	.light6 { top: calc(50% + 118px); }
 }
 
 .sportsman {
     .lights.staged .light1 { 
-        background-position: center -23px; 
+        background-position: center -30px; 
         box-shadow: -5px 0 5px rgba(22,135,252,0.5), 0 -5px 5px rgba(22,135,252,0.5), 5px 0 5px rgba(22,135,252,0.5), 0 5px 5px rgba(22,135,252,0.5); 
-        transition: background-position 0s linear 0.01s, box-shadow 0s linear 0.01s;
+        transition: background-position 0s linear 0s, box-shadow 0s linear 0s;
     }
     .lights.staged .light2 { 
-        background-position: center -69px; 
-        box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
-        transition: background-position 0s linear 1s, box-shadow 0s linear 1s; 
-    }
-    .lights.staged .light3 { 
-    background-position: center -69px;
-        box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
-        transition: background-position 0s linear 1.5s, box-shadow 0s linear 1.5s; 
-    }
-    .lights.staged .light4 { 
-        background-position: center -69px; 
+        background-position: center -90px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 2s, box-shadow 0s linear 2s; 
     }
-    .lights.staged .light5 { 
-        background-position: center -92px; 
-        box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
+    .lights.staged .light3 { 
+    background-position: center -90px;
+        box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
         transition: background-position 0s linear 2.5s, box-shadow 0s linear 2.5s; 
+    }
+    .lights.staged .light4 { 
+        background-position: center -90px; 
+        box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
+        transition: background-position 0s linear 3s, box-shadow 0s linear 3s; 
+    }
+    .lights.staged .light5 { 
+        background-position: center -120px; 
+        box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
+        transition: background-position 0s linear 3.5s, box-shadow 0s linear 3.5s; 
     }
 }
 
 .pro {
     .lights.staged .light1 { 
-        background-position: center -23px; 
+        background-position: center -30px; 
         box-shadow: -5px 0 5px rgba(22,135,252,0.5), 0 -5px 5px rgba(22,135,252,0.5), 5px 0 5px rgba(22,135,252,0.5), 0 5px 5px rgba(22,135,252,0.5); 
         transition: background-position 0s linear 0.01s, box-shadow 0s linear 0.01s; 
     }
     .lights.staged .light2 { 
-        background-position: center -69px; 
+        background-position: center -90px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
-        transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
+        transition: background-position 0s linear 3s, box-shadow 0s linear 3s; 
     }
     .lights.staged .light3 { 
-        background-position: center -69px; 
+        background-position: center -90px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
-        transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
+        transition: background-position 0s linear 3s, box-shadow 0s linear 3s; 
     }
     .lights.staged .light4 { 
-        background-position: center -69px; 
+        background-position: center -90px; 
         box-shadow: -5px 0 5px rgba(245, 197, 25, 0.5), 0 -5px 5px rgba(245, 197, 25, 0.5), 5px 0 5px rgba(245, 197, 25, 0.5), 0 5px 5px rgba(245, 197, 25, 0.5); 
-        transition: background-position 0s linear 0.5s, box-shadow 0s linear 0.5s; 
+        transition: background-position 0s linear 3s, box-shadow 0s linear 3s; 
     }
     .lights.staged .light5 { 
-        background-position: center -92px; 
+        background-position: center -120px; 
         box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
-        transition: background-position 0s linear 0.9s, box-shadow 0s linear 0.9s; 
+        transition: background-position 0s linear 3.5s, box-shadow 0s linear 3.5s; 
     }   
 }
 
-.lights.launch .light1 { background-position: center -46px;  box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light1 { background-position: center -46px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light2.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light3.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
-.lights.failed .light4.fail { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.launch .light1 { background-position: center 30px;  box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light1 { background-position: center 30px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light2.fail { background-position: center -60px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light3.fail { background-position: center -60px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light4.fail { background-position: center -60px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
 .lights.launch .light5 { 
-    background-position: center -92px;
+    background-position: center -120px;
     box-shadow: -5px 0 5px rgba(0, 255, 85, 0.5), 0 -5px 5px rgba(0, 255, 85, 0.5), 5px 0 5px rgba(0, 255, 85, 0.5), 0 5px 5px rgba(0, 255, 85, 0.5); 
     transition: background-position 0s linear 0s, box-shadow 0s linear 0s;
 }
-.lights.failed .light5.left, .lights.failed .light5.right { background-position: center 23px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
+.lights.failed .light5.left, .lights.failed .light5.right { background-position: center -60px; box-shadow: none; transition: background-position 0s linear 0s, box-shadow 0s linear 0s; }
 .lights.failed .light6.left, .lights.failed .light6.right { 
-    background-position: center -115px;
+    background-position: center -150px;
     box-shadow: -5px 0 5px rgba(255, 4, 0, 0.5), 0 -5px 5px rgba(255, 4, 0, 0.5), 5px 0 5px rgba(255, 4, 0, 0.5), 0 5px 5px rgba(255, 4, 0, 0.5); 
     transition: background-position 0s linear 0s, box-shadow 0s linear 0s;
 }
@@ -263,8 +269,8 @@ button.pedal.down { background-position: -100px 0; }
         /*.lights { background-size: auto 2560px; }*/
     }
     @media screen and (orientation: landscape) {
-        .timer { bottom: calc(50% - 50px); left: calc(env(safe-area-inset-left) + 20px); right: unset; }
-		.result { bottom: calc(50% - 16px); left: unset; right: calc(env(safe-area-inset-right) + 20px); }
+        .timer { bottom: calc(50% - 35px); left: calc(env(safe-area-inset-left) + 20px); right: unset; }
+		.result { bottom: calc(50% - 6px); left: unset; right: calc(env(safe-area-inset-right) + 20px); }
 
 
 		/*.timer {
